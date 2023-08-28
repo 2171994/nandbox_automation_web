@@ -20,7 +20,8 @@ public class Base_test {
 		  System.setProperty("webdriver.chrome.driver", ".\\chrome3_driver\\chromedriver.exe");
 		  base_page_driver  = new ChromeDriver();
 		  base_page_driver .manage().window().maximize();
-		  base_page_driver .get("https://dev1.ourpage.me/login");
+		  base_page_driver .get("https://www.fakemail.net/");
+		//  base_page_driver .get("https://dev1.ourpage.me/login");
   }
 	  @AfterClass
 	  public void close_browser() {
