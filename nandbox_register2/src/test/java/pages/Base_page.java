@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,6 +14,7 @@ public class Base_page {
   public Base_page (WebDriver driver ){  //constructor 
 		
 		base_page_driver = driver ;
+		PageFactory.initElements(base_page_driver, this);
 		
 	}
   public void scroll_down (WebDriver driver)
@@ -25,4 +28,11 @@ public class Base_page {
 	  wait.until(ExpectedConditions.visibilityOfElementLocated(element_name));
 			  
   }
+	public void wait_elementss(WebDriver driver, int time, WebElement element_name) {
+		// TODO Auto-generated method stub
+		WebDriverWait wait =new WebDriverWait(driver,time);
+		  wait.until(ExpectedConditions.visibilityOfElementLocated((By) element_name));
+	}
+
+  
 }
