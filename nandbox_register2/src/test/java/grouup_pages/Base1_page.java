@@ -1,8 +1,12 @@
 package grouup_pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+//import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,6 +17,8 @@ public class Base1_page {
 	public Base1_page(WebDriver driver2)
 	{
 		new_driver = driver2 ;
+		PageFactory.initElements(new_driver, this);
+		new_driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 //public Base_page(WebDriver driver2) {
 		// TODO Auto-generated constructor stub
