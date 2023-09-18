@@ -6,6 +6,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import bookings_pages.login3_page;
+//import event_pages.login1_page;
 
 
 
@@ -20,12 +21,11 @@ public class Base_Test {
 			  System.setProperty("webdriver.chrome.driver", ".\\chrome3_driver\\chromedriver.exe");
 			  mydriver  = new ChromeDriver();
 			  mydriver .manage().window().maximize();
-			  mydriver .get("https://dev1.ourpage.me/login") ;
+			  mydriver.get("https://dev5.ourpage.me/login") ;
 			  log = new login3_page(mydriver);
-			  log.check_app_owner_found();
 			  log.insert_email_field();
-			  log.insert_pass();
-			  log.click_on_login();
+			  log.insert_pass() ;
+			  log.click_On_signin();
 	
 		  }
 		  @AfterClass
