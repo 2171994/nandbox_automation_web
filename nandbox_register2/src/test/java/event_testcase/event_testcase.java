@@ -8,8 +8,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 //import org.w3c.dom.events.EventException;
 
+import driver_manager.DriverManager;
 import event_pages.create_event_page;
 import event_pages.event_section_page;
+//import event_pages.login1_page;
 import event_pages.uploadeventimages;
 //import event_pages.event_setting_page;
 //import event_pages.login1_page;
@@ -17,7 +19,7 @@ import event_pages.uploadeventimages;
 //import pages.login_page;
 //import utilities.read_excel;
 
-public class event_testcase extends Base_test {
+public class event_testcase extends DriverManager {
   
          event_section_page  sec ;
          create_event_page cre ;
@@ -28,14 +30,14 @@ public class event_testcase extends Base_test {
 		  @Test (dataProvider ="test_data1")
 		  public void loginn(String eventname ,String eventdescription ,String imageName) throws InterruptedException  {
 			  
-			
-			  sec = new event_section_page (new_driver) ;
+			  
+			  sec = new event_section_page (new_driver1) ;
 			  sec.click_on_event_section();
 			  sec.click_on_create_event_button();
-			  cre = new create_event_page(new_driver);
+			  cre = new create_event_page(new_driver1);
 			  cre.insert_event_name(eventname);
 			  cre.insert_event_description(eventdescription);
-			  upload = new uploadeventimages(new_driver);
+			  upload = new uploadeventimages(new_driver1);
 			  upload.uploadImage(imageName);
 		//	  cre.select_all_days();
 			  cre.location_detected();

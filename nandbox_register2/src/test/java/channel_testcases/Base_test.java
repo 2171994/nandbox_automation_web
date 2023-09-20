@@ -32,11 +32,11 @@ public class Base_test {
 			  System.setProperty("webdriver.chrome.driver", ".\\chrome3_driver\\chromedriver.exe");
 			  new_driver  = new ChromeDriver();
 			  new_driver .manage().window().maximize();
-			  new_driver .get("https://dev5.ourpage.me/login") ;
-			  log = new login2_page(new_driver);
-			  log.insert_email_field();
-			  log.insert_pass();
-			  log.click_On_signin();
+	//		  new_driver .get("https://dev5.ourpage.me/login") ;
+	//		  log = new login2_page(new_driver);
+	//		  log.insert_email_field();
+	//		  log.insert_pass();
+	//		  log.click_On_signin();
 	         
 		  }
 		  @AfterClass

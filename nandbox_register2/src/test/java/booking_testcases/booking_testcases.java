@@ -1,22 +1,33 @@
 package booking_testcases;
 
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 //import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+//import booking_testcases.Base_Test;
 import bookings_pages.booking_more_details_page;
 import bookings_pages.booking_section_page;
 import bookings_pages.create_booking_page;
 
 import bookings_pages.uploadbookingimages;
+import driver_manager.DriverManager;
+//import event_testcase.General_Base_test;
 
 
-public class booking_testcases extends Base_Test {
+public class booking_testcases extends DriverManager  {
+	  
+
+//	    public void setup() {
+	        // Set the system property for ChromeDriver
+	//    	System.setProperty("webdriver.chrome.driver", ".\\chrome3_driver\\chromedriver.exe");
+
+	        // Initialize the WebDriver object
+	  //      new_driver1 = new ChromeDriver();
 	
-	
-	
-	 booking_section_page sec;
+	    //}
+	 booking_section_page secc ;
 	 create_booking_page cree ;
 
 	booking_more_details_page mor ;
@@ -26,17 +37,17 @@ public class booking_testcases extends Base_Test {
   public void booking (String BookingName ,String BookingDescription,String BookingDuration,String Bookinggap,String imagebookingName) throws InterruptedException {
 	  
 	
-	  sec = new booking_section_page(mydriver) ;
-	  sec.click_on_booking_section();
-	  sec.click_on_create_booking();
-	  cree = new create_booking_page(mydriver);
+	  secc = new booking_section_page(new_driver1) ;
+	  secc.click_on_booking_section();
+	  secc.click_on_create_booking();
+	  cree = new create_booking_page(new_driver1);
 	  cree.insert_booking_name(BookingName);
 	  cree.insert_booking_Description(BookingDescription);
 	  cree.insert_booking_location();
 	  cree.select_booking_location();
 	  cree.insert_booking_duration(BookingDuration);
 	  cree.insert_booking_gap(Bookinggap);
-	  upl =new uploadbookingimages(mydriver);
+	  upl =new uploadbookingimages(new_driver1);
 	  upl.uploadImage(imagebookingName);
 	  cree.click_on_day_toggle();
 	  cree.insert_start_time();
@@ -45,7 +56,7 @@ public class booking_testcases extends Base_Test {
 	  cree.insert_booking_per_time_slot();
 	  cree.click_on_booking_save_button();
 	  cree.click_on_back_button();
-	  Assert.assertEquals(sec.expected_booking_name(), BookingName ) ;
+	  Assert.assertEquals(secc.expected_booking_name(), BookingName ) ;
 	
 	//Assert.assertEquals(sch.check_create_new_schedule(), "Create New schedule" ) ;
 	//sch.click_on_day_toggle();

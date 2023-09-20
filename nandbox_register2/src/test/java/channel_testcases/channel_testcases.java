@@ -13,9 +13,11 @@ import org.testng.annotations.Test;
 import channels_pages.channels_section_page;
 import channels_pages.create_channel;
 import channels_pages.uploadchannelimages;
+import driver_manager.DriverManager;
 //import group_utilities.read_excel2;
+//import event_testcase.General_Base_test;
 
-public class channel_testcases extends Base_test {
+public class channel_testcases extends DriverManager {
 
 
     channels_section_page cha ;
@@ -40,13 +42,13 @@ public class channel_testcases extends Base_test {
 	  public void loginn(String channelname , String channeldescription ,String imageName) throws InterruptedException  {
 		  
 		
-		  cha = new channels_section_page (new_driver) ;
+		  cha = new channels_section_page (new_driver1) ;
 		  cha.click_on_channel_section();
 		  cha.click_on_create_channel_button();
-		  crea = new create_channel(new_driver);
+		  crea = new create_channel(new_driver1);
 		  crea.insert_channel_name(channelname);
 		  crea.insert_channel_description(channeldescription);
-		  upl = new uploadchannelimages(new_driver);
+		  upl = new uploadchannelimages(new_driver1);
 		  upl.uploadImage(imageName);
 		  crea.click_on_save_button();
 	//	  Assert.assertEquals(crea.expected_Store_section_display(), "Lo");
